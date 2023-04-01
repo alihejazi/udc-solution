@@ -26,6 +26,18 @@ const getTimeoutDevices = async () => {
     console.log(uuids);
 }
 
+const registerDevice = async () => {
+    const deviceUuid: string = commandLineArgs[1];
+    const roomUuid: string = commandLineArgs[2];
+
+    if (!deviceUuid || !roomUuid) {
+        console.log('You must pass a device uuid and then a room uuid!');
+        return;
+    }
+
+    
+}
+
 const main = () => {
     if (!commandLineArgs.length) {
         console.log('Please pass a command to do some fun stuff!');
@@ -46,6 +58,7 @@ const main = () => {
             break;
 
         case 'register-device':
+            registerDevice();
             break;
 
         default:

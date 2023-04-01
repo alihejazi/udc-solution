@@ -5,4 +5,4 @@
 Duplicate `.env.example` and rename the copy as `.env` and then populate env values.
 
 # Run
-1. `ts-node app.ts <command>`
+1. `ts-node app.ts <command> <args...>`
