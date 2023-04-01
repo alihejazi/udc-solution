@@ -11,6 +11,26 @@ class Client {
         });
         return devices;
     }
+
+    public static registerDevice = (deviceUuid: string, roomUuid: string) => {
+        const payload = { uuid: deviceUuid };
+        const config =  {
+            headers: {
+                Authorization: `Bearer ${process.env.TOKEN}`
+            }
+        }
+        axios.post(
+            `${process.env.BASE_URI}/rooms/${roomUuid}/devices`,
+            payload,
+            config
+        )
+        .then(() => {
+            console.log('Device added!');
+        })
+        .catch(error => {
+            console.log('ERROR:', error.response.data.error);
+        });
+    }
 }
 
 export default Client;

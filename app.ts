@@ -34,8 +34,8 @@ const registerDevice = async () => {
         console.log('You must pass a device uuid and then a room uuid!');
         return;
     }
-
     
+    Client.registerDevice(deviceUuid, roomUuid);
 }
 
 const main = () => {
