@@ -4,7 +4,7 @@ class Device {
     private uuid: string;
     private status: "RUNNNING" | "STOPPED";
     private responseTime: number;
-    private room: Room;
+    private room : Room | null;
     private temperature: number;
     private humidity: number;
 
@@ -12,7 +12,8 @@ class Device {
         this.uuid = deviceJson.uuid;
         this.status = deviceJson.status;
         this.responseTime = deviceJson.responseTime;
-        this.room = deviceJson.room;
+        // some devices have room set to `null`, so check for this first
+        this.room = deviceJson.room ? new Room(deviceJson.room) : null;
         this.temperature = deviceJson.temperature;
         this.humidity = deviceJson.humidity;
     }
