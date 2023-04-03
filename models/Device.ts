@@ -2,7 +2,7 @@ import Room from './Room';
 
 class Device {
     private uuid: string;
-    private status: "RUNNNING" | "STOPPED";
+    private status: "RUNNING" | "STOPPED";
     private responseTime: number;
     private room: Room | null;
     private temperature: number;
