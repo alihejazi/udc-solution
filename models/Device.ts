@@ -4,7 +4,7 @@ class Device {
     private uuid: string;
     private status: "RUNNNING" | "STOPPED";
     private responseTime: number;
-    private room : Room | null;
+    private room: Room | null;
     private temperature: number;
     private humidity: number;
 

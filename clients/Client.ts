@@ -2,7 +2,7 @@ import Device from "../models/Device";
 import axios from "axios";
 
 class Client {
-    public static getDevices = async () : Promise<Device[]> => {
+    public static getDevices = async (): Promise<Device[]> => {
         const response = await axios.get(`${process.env.BASE_URI}/devices`);
         const devices: Device[] = [];
         // deserialise JSON into Device model
@@ -14,7 +14,7 @@ class Client {
 
     public static registerDevice = (deviceUuid: string, roomUuid: string) => {
         const payload = { uuid: deviceUuid };
-        const config =  {
+        const config = {
             headers: {
                 Authorization: `Bearer ${process.env.TOKEN}`
             }
@@ -24,12 +24,12 @@ class Client {
             payload,
             config
         )
-        .then(() => {
-            console.log('Device added!');
-        })
-        .catch(error => {
-            console.log('ERROR:', error.response.data.error);
-        });
+            .then(() => {
+                console.log('Device added!');
+            })
+            .catch(error => {
+                console.log('ERROR:', error.response.data.error);
+            });
     }
 }
 

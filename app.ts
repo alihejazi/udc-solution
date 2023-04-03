@@ -19,9 +19,9 @@ const getTimeoutDevices = async () => {
     }
 
     const devices: Device[] = (await Client.getDevices())
-        .filter((device:Device) => device.getResponseTime() > threshold);
+        .filter((device: Device) => device.getResponseTime() > threshold);
 
-    const uuids: string[] =  [];
+    const uuids: string[] = [];
     devices.forEach((device: Device) => uuids.push(device.getUuid()));
     console.log(uuids);
 }
@@ -34,7 +34,7 @@ const registerDevice = async () => {
         console.log('You must pass a device uuid and then a room uuid!');
         return;
     }
-    
+
     Client.registerDevice(deviceUuid, roomUuid);
 }
 
@@ -44,7 +44,7 @@ const main = () => {
         return;
     }
 
-    switch(commandLineArgs[0]) {
+    switch (commandLineArgs[0]) {
         case 'version':
             console.log(process.env.VERSION);
             break;
@@ -67,7 +67,7 @@ const main = () => {
              - device-count
              - timeout-devices <threshold>
              - register-device <device-uuid> <room-uuid>`)
-             break;
+            break;
     }
 
 }
